@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rpc-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rpc-server
+  template:
+    metadata:
+      labels:
+        app: rpc-server
+    spec:
+      containers:
+      - name: rpc-server
+        image: laraalvesss/rpc-server:1.0
+        ports:
+        - containerPort: 5000
